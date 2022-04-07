@@ -28,17 +28,21 @@
                             <div class="form-group">
                                 {% for field in form %}
                                     <div class="form-group">
-                                    <span class="text-danger">{{field.errors}}</span>
+                                    <span class="text-danger" style="color: red;">{{field.errors}}</span>
                                    {{field.label_tag}}
                                     <p>{{field}}</p>
                                     </div> 
                                 {% endfor %}
                             </div>
-                            
+                                           {% if messages %}
+                            {% for message in messages %}
+                            <p style="color:red" >{{ message}}</p>
+                            {% endfor %}
+                            {% endif %}
                             <div class="form-group form-button">
                                 <input type="submit" name="signup" id="signup" class="form-submit" value="Register"/>
                             </div>
-                             
+                      
                         </form>
                        
                     </div>

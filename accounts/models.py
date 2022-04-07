@@ -34,7 +34,7 @@ class CustomUserManager(UserManager):
 class CustomUser(AbstractUser):
     USER_TYPE = ((1, 'Admin'), (2, 'cms'))
     username = None  # use email instead of username
-    email = models.EmailField(unique=True)
+    email = models.EmailField(unique=True, null=False)
     user_type = models.CharField(default=1, choices=USER_TYPE, max_length=1)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now_add=True)
